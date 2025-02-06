@@ -59,7 +59,7 @@ jQuery(async () => {
     // These are examples of listening for events
     $("#my_button").on("click", onButtonClick);
     $("#example_setting").on("input", onExampleInput);
-    $("#new_persona_button").on("click", onChangePersonaButton);
+    $("#new_persona_button").on("click", onButtonClick);
 
     // Load settings when starting things up (if you have any)
     loadSettings();
