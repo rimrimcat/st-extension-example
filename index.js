@@ -76,43 +76,43 @@ function handleIncomingMessage(data) {
     );
 }
 
-
-import {Popup} from "../../../../scripts/popup.js";
-import {t} from "../../../../scripts/i18n.js";
-
-async function onChangePersonaButton() {
-    const personaName = await Popup.show.input(t`Enter a name for this persona:`, null);
-
-    if (!personaName) {
-        console.debug('User cancelled creating dummy persona');
-        return;
-    }
-
-    await createNewPersona(personaName);
-}
-
-import {
-    initPersona,
-    uploadUserAvatar,
-    updatePersonaNameIfExists,
-    retriggerFirstMessageOnEmptyChat
-} from "../../../../scripts/personas.js";
-import {default_user_avatar, setUserName} from "../../../../script.js";
-
-async function createNewPersona(personaName) {
-    if (!personaName) {
-        console.debug('Cannot create persona from empty name!');
-        return;
-    }
-    // Date + name (only ASCII) to make it unique
-    const avatarId = `${Date.now()}-${personaName.replace(/[^a-zA-Z0-9]/g, '')}.png`;
-    initPersona(avatarId, personaName, '');
-    await uploadUserAvatar(default_user_avatar, avatarId);
-}
-
-async function switchPersona(personaName) {
-    const userName = String($('#your_name').val()).trim();
-    setUserName(userName);
-    await updatePersonaNameIfExists('', userName);
-    retriggerFirstMessageOnEmptyChat();
-}
+//
+// import {Popup} from "../../../../scripts/popup.js";
+// import {t} from "../../../../scripts/i18n.js";
+//
+// async function onChangePersonaButton() {
+//     const personaName = await Popup.show.input(t`Enter a name for this persona:`, null);
+//
+//     if (!personaName) {
+//         console.debug('User cancelled creating dummy persona');
+//         return;
+//     }
+//
+//     await createNewPersona(personaName);
+// }
+//
+// import {
+//     initPersona,
+//     uploadUserAvatar,
+//     updatePersonaNameIfExists,
+//     retriggerFirstMessageOnEmptyChat
+// } from "../../../../scripts/personas.js";
+// import {default_user_avatar, setUserName} from "../../../../script.js";
+//
+// async function createNewPersona(personaName) {
+//     if (!personaName) {
+//         console.debug('Cannot create persona from empty name!');
+//         return;
+//     }
+//     // Date + name (only ASCII) to make it unique
+//     const avatarId = `${Date.now()}-${personaName.replace(/[^a-zA-Z0-9]/g, '')}.png`;
+//     initPersona(avatarId, personaName, '');
+//     await uploadUserAvatar(default_user_avatar, avatarId);
+// }
+//
+// async function switchPersona(personaName) {
+//     const userName = String($('#your_name').val()).trim();
+//     setUserName(userName);
+//     await updatePersonaNameIfExists('', userName);
+//     retriggerFirstMessageOnEmptyChat();
+// }
